@@ -18,20 +18,9 @@ def getFiles(directories,extensions,outputfile):
     for d in directories:
         for root, dirs, files in os.walk(str(d)):
             for file in files:
-                #print file
                 for ext in extensions:
-                    #print "Filename: %s. Extension: %s." %file %ext
                     if file.endswith(str(ext)):
-                        #print "Found a file"
                         outFile.write(str(os.path.join(root,file))+"\n")
-    outFile.close()
-    return None
-
-
-def writeOut(files,outputFile):
-    outFile = open(str(outputFile),'w')
-    for f in files:
-        outFile.write(f+"\n")
     outFile.close()
     return None
 
@@ -41,7 +30,6 @@ if __name__ == '__main__':
         printInvalidInput()
 
     else:
-
         #variables
         directories = []
         extensions = []
@@ -58,15 +46,7 @@ if __name__ == '__main__':
         else:
             print "No -ext"
             printInvalidInput()
-    #print directories
-    #print extensions
-    #exit(1)
-
 
     #Output filename
     outputFile = "listOfFiles.txt"
     listOfFiles = getFiles(directories,extensions,outputFile)
-
-
-    #write results to file
-    #writeOut(listOfFiles,outputFile)
